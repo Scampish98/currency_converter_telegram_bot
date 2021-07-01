@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Mapping
 
 import requests
-import toolz
+import toolz  # type: ignore
 
 
 class Converter:
@@ -22,7 +22,7 @@ class Converter:
             currencies_mapping=config["currencies_mapping"],
         )
 
-    def convert(self, source: str, target: str, amount: float):
+    def convert(self, source: str, target: str, amount: float) -> float:
         if source not in self._currencies_mapping:
             raise APIException(f'Невозможно обработать валюту "{source}"')
         if target not in self._currencies_mapping:

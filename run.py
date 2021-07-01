@@ -1,5 +1,7 @@
+from typing import Any, Callable
+
 import decorator
-import telebot
+import telebot  # type: ignore
 
 from config import config
 from extensions import APIException, Converter
@@ -19,7 +21,7 @@ converter = Converter.from_config(config["converter"])
 
 
 @decorator.decorator
-def handler_wrapper(handler, *args, **kwargs):
+def handler_wrapper(handler: Callable[..., Any], *args, **kwargs) -> Any:
     message: telebot.types.Message = args[0] if args else kwargs["message"]
     try:
         return handler(*args, **kwargs)
