@@ -1,0 +1,12 @@
+telebot:
+  token: 1862116047:AAFi3P336cLMp5kk2zKkPyH1xrgWC8bP014
+currencies: &currencies_mapping
+  рубль: RUB
+  евро: EUR
+  доллар: USD
+converter:
+  url: https://free.currconv.com/api/v7/convert
+  params:
+    compact: ultra
+    apiKey: f42018e34b2bbd31ca63
+  currencies_mapping: *currencies_mapping
